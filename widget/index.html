@@ -1,11 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="home">
 <head>
-	<script>
-		var buildfireOptions={
-			skipAllCSS:true
-		};
-	</script>
+
 
 	<script src="../../../scripts/buildfire.js"></script>
 
@@ -23,6 +19,10 @@
 
     <div ng-controller="homeCtrl" class="fill container-fluid">
 
+		<div class="cus-logo-contain row">
+			<img id="logo" class="h-v-center" ng-src="{{logoUrl}}" />
+		</div>
+
 		<div id="carousel" class="row">
 			<img ng-repeat="imgUrl in images" ng-src="{{imgUrl}}" width="100%" class="shadow" />
 		</div>
@@ -31,10 +31,13 @@
 		<nav class="circular-menu">
 
 			<div class="circle">
-				<a title="{{w.title}}" href="" class="circleIcon"  ng-click="click(w)" ng-repeat="w in widgets"><img  ng-src="{{w.icon}}" /></a>
+				<a  href="" class="circleIcon"  ng-click="click(w)" ng-repeat="w in widgets">
+					<img  ng-src="{{w.icon}}" />
+					{{w.title}}
+				</a>
 			</div>
 
-			<a href="" style="box-shadow:5px 5px;" class="menu-button fa fa-bars fa-2x shadow"></a>
+			<a href="" class="menu-button shadow"><img src="start.png"></a>
 
 		</nav>
 

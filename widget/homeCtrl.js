@@ -23,20 +23,28 @@ $home.controller('homeCtrl', ['$scope'
             ,{title:"People", widgetId:'peoplePlugin',instanceId:321, icon:"http://www.allthingsscene.co/wp-content/uploads/2014/07/App-icon.png", requiresConnection:true}
             ,{title:"Contact Us", widgetId:'contactUsPlugin',instanceId:321, icon:"http://www.codeandlogic.com/media/home/appIcon.png", requiresConnection:true}
             ,{title:"Text", widgetId:'textPlugin',instanceId:654645, icon:"http://icons.iconarchive.com/icons/fasticon/twitter-square/256/twitter-square-icon.png", requiresConnection:true}
+
+
         ];
 
+
+        var iconSize=50,circleRadious=40;
+
         for(var i=0;i< widgets.length ;i++)
-            widgets[i].icon= buildfire.imageLib.resizeImage(widgets[i].icon,{width:50});
+            widgets[i].icon= buildfire.imageLib.resizeImage(widgets[i].icon,{width:iconSize});
 
         $scope.widgets=widgets;
 
         function initMenu(){
 
             var items = document.querySelectorAll('a.circleIcon');
-            for(var i = 0, l = items.length; i < l; i++) {
-                items[i].style.left = (50 - 35*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
 
-                items[i].style.top = (50 + 35*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+
+
+            for(var i = 0, l = items.length; i < l; i++) {
+                items[i].style.left = (iconSize - circleRadious*Math.cos(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
+
+                items[i].style.top = (iconSize + circleRadious*Math.sin(-0.5 * Math.PI - 2*(1/l)*i*Math.PI)).toFixed(4) + "%";
             }
 
             document.querySelector('.menu-button').onclick = function(e) {

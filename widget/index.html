@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="home">
+<head>
+	<script>
+		var buildfireOptions={
+			skipAllCSS:true
+		};
+	</script>
+
+	<script src="../../../scripts/buildfire.js"></script>
+
+	<link href="menu.css" rel="stylesheet">
+<style>
+	.shadow{
+		-webkit-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+		-moz-box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+		box-shadow: 5px 5px 5px 0px rgba(0,0,0,0.75);
+	}
+</style>
+
+</head>
+<body>
+
+    <div ng-controller="homeCtrl" class="fill container-fluid">
+
+		<div id="carousel" class="row">
+			<img ng-repeat="imgUrl in images" ng-src="{{imgUrl}}" width="100%" class="shadow" />
+		</div>
+		<!-- Demo by http://creative-punch.net -->
+
+		<nav class="circular-menu">
+
+			<div class="circle">
+				<a title="{{w.title}}" href="" class="circleIcon"  ng-click="click(w)" ng-repeat="w in widgets"><img  ng-src="{{w.icon}}" /></a>
+			</div>
+
+			<a href="" style="box-shadow:5px 5px;" class="menu-button fa fa-bars fa-2x shadow"></a>
+
+		</nav>
+
+
+
+    </div>
+    <script src="../../../scripts/angular/angular.min.js"></script>
+    <script src="homeCtrl.js"></script>
+
+</body>
+</html>

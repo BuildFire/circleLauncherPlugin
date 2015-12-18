@@ -1,8 +1,8 @@
 {
-  "author":"[Your Name here]"
-,"pluginName":"[Your Plugin Name here]"
-,"pluginDescription":"[A short description of what your plugin does]"
-,"supportEmail":"[Your support Email]"
+  "author":"Daniel Hindi"
+,"pluginName":"Different Launcher Option"
+,"pluginDescription":"Displays your plugins in a circle"
+,"supportEmail":"support@buildfire.com"
 ,"control":{
   "content":{
     "enabled":true

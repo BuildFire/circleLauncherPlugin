@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="home">
 <head>
-	<script src="../../../scripts/buildfire.js"></script>
+	<!-- CSS -->
+	<link href="../../../scripts/owlCarousel/owlCarousel.css" rel="stylesheet" />
 	<link href="menu.css" rel="stylesheet">
+
+	<!-- JS -->
+	<script src="../../../scripts/buildfire.js"></script>
+	<script src="../../../scripts/jquery/jquery-1.11.2.min.js"></script>
+	<script type="text/javascript" src="../../../scripts/owlCarousel/owlCarousel.js"></script>
+	<script src="../../../scripts/buildfire/components/carousel/carousel.js"></script>
+
+
 </head>
 <body>
     <div ng-controller="homeCtrl" class="fill container-fluid">
-		<div class="cus-logo-contain row">
-			<img id="logo" class="h-v-center" ng-src="{{logoUrl}}" />
-		</div>
+
 		<div id="carousel" class="row">
-			<img ng-repeat="imgUrl in images" ng-src="{{imgUrl}}" width="100%" class="shadow" />
+
 		</div>
 		<nav class="circular-menu">
 			<div class="circle">
-				<a  href="" class="circleIcon"  ng-click="click(w)" ng-repeat="w in widgets">
-					<div class="media">
-						<img  ng-src="{{w.icon}}" />
+				<a  href="" class="circleIcon"  ng-click="click(p)" ng-repeat="p in plugins" style="left:{{p.left}};top:{{p.top}}">
+					<div class="menu-links">
+						<img ng-src="{{ cropImage(p.data.iconUrl, {width: 100, height: 100}) }}" ng-if="p.data.iconUrl" >
+						<span class="main-icon  {{ p.data.iconClassName }}" ng-if="p.data.iconClassName"></span>
+						<span class="main-icon icon icon-puzzle" ng-if="!p.data.iconUrl && !p.data.iconClassName"></span>
+
 					</div>
-					<p class="ellipsis">{{w.title}}</p>
+					<p class="ellipsis">{{p.data.title}}</p>
 				</a>
 			</div>
-			<a href="" class="menu-button shadow"><img src="start.png"></a>
+			<a href="" class="menu-button shadow" ng-click="start()"><img src="start.png"></a>
 		</nav>
     </div>
 
 	<!-- JS -->
+
     <script src="../../../scripts/angular/angular.min.js"></script>
     <script src="homeCtrl.js"></script>
 </body>

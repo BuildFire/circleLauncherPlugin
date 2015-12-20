@@ -23,7 +23,7 @@
 			<div class="circle">
 				<a  href="" class="circleIcon"  ng-click="click(p)" ng-repeat="p in plugins" style="left:{{p.left}};top:{{p.top}}">
 					<div class="menu-links">
-						<img ng-src="{{ cropImage(p.data.iconUrl, {width: 100, height: 100}) }}" ng-if="p.data.iconUrl" >
+						<img class="" ng-src="{{ cropImage(p.data.iconUrl, {width: 100, height: 100}) }}" ng-if="p.data.iconUrl" >
 						<span class="main-icon  {{ p.data.iconClassName }}" ng-if="p.data.iconClassName"></span>
 						<span class="main-icon icon icon-puzzle" ng-if="!p.data.iconUrl && !p.data.iconClassName"></span>
 
@@ -32,7 +32,9 @@
 				</a>
 			</div>
 
-			<a href="" class="menu-button shadow" ng-click="start()" ng-show="plugins.length"><img src="start.png"></a>
+			<a href="" class="menu-button" ng-click="start()" ng-show="plugins.length">
+				<span class="glyphicon glyphicon-home"></span>
+			</a>
 		</nav>
     </div>
 
